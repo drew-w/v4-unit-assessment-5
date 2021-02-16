@@ -30,7 +30,6 @@ class Nav extends Component {
     axios.post("/api/auth/logout").then((_) => logout());
   }
   render() {
-    console.log(this.props);
     return (
       this.props.location.pathname !== "/" && (
         <div className="nav">
@@ -57,7 +56,7 @@ class Nav extends Component {
 }
 
 function mapStateToProps(state) {
-  return state.reducer;
+  return state;
 }
 
 export default withRouter(

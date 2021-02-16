@@ -3,7 +3,7 @@ const express = require("express"),
   userCtrl = require("./controllers/user"),
   postCtrl = require("./controllers/posts"),
   massive = require("massive"),
-  session = require("express-session")
+  session = require("express-session");
 
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 
@@ -12,13 +12,13 @@ const app = express();
 app.use(express.json());
 
 app.use(
-    session({
-        resave: true,
-        saveUninitialized: true,
-        secret: SESSION_SECRET,
-        cookie: {maxAge: 1000*60*60*24*7}
-    })
-)
+  session({
+    secret: SESSION_SECRET,
+    resave: true,
+    saveUninitialized: false,
+    cookie: { maxAge: null, secure: false },
+  })
+);
 
 massive({
   connectionString: CONNECTION_STRING,

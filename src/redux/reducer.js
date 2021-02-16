@@ -1,6 +1,6 @@
 const initialState = {
   username: "",
-  profilePicture: "",
+  profile_pic: "",
 };
 
 const STORE_USER_INFO = "STORE_USER_INFO";
@@ -21,15 +21,13 @@ export const logout = () => {
 };
 
 export default function reducer(state = initialState, action) {
+  
   switch (action.type) {
-    case STORE_USER_INFO + "_FULFILLED":
-      const { username, profilePicture } = action.payload;
-      return { username, profilePicture };
     case STORE_USER_INFO:
-      return { username, profilePicture };
+      const { username, profile_pic } = action.payload;
+      console.log('hello!!!')
+      return { username, profile_pic };
     case LOGOUT_USER:
-      return { ...state };
-    case LOGOUT_USER + "_FULFULLED":
       return { ...state };
     default:
       return state;

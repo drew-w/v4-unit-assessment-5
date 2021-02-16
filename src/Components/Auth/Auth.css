@@ -71,3 +71,14 @@
     justify-content: space-around;
     width: 55%;
   }
+
+  @media screen and (max-width: 400px){
+    .auth-container{
+      width: fit-content;
+      box-shadow: none;
+      background-image: none;
+    }
+    .auth-button-container{
+      justify-content: space-between;
+    }
+  }

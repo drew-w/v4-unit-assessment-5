@@ -42,7 +42,7 @@ class Dash extends Component {
         url += "?oldest=true";
       }
     }
-    axios.get(url).then((res) => {
+    axios.get(url,{withCredentials: true}).then((res) => {
       this.setState({ posts: res.data, loading: false });
     });
   }
