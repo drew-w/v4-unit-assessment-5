@@ -28,7 +28,8 @@ module.exports = {
     if (!user) {
       return res.status(401).send("username does not exist");
     }
-    const authentication = bcrypt.compareSync(password, user.hash);
+    console.log(password, user.password)
+    const authentication = bcrypt.compareSync(password, user.password);
     if (!authentication) {
       return res.status(403).send("Incorrect Password");
     }
@@ -47,7 +48,7 @@ module.exports = {
     if (req.session.user) {
       return res.status(200).send(req.session.user);
     } else {
-      return sendStatus(404);
+      return res.sendStatus(404);
     }
   },
 };
