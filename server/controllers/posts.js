@@ -1,8 +1,8 @@
 module.exports = {
   readPosts: async (req, res) => {
     console.log(req.session)
-    let { id } = req.session.user;
-    // let id = 3
+    // let { id } = req.session.user;
+    let id = 3
     let { mine, search, oldest } = req.query;
     const db = await req.app.get("db");
     if (mine && !search) {
@@ -47,8 +47,8 @@ module.exports = {
   },
   createPost: (req, res) => {
     const db = req.app.get("dp");
-    const { id } = req.session.user;
-    // const id = 3
+    // const { id } = req.session.user;
+    const id = 3
     const { title, img, content } = req.body;
     const date = new Date();
     if (id) {
