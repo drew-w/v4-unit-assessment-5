@@ -1,6 +1,7 @@
 const initialState = {
-  username: "",
-  profile_pic: "",
+  // username: "",
+  // profile_pic: "",
+  user: null
 };
 
 const STORE_USER_INFO = "STORE_USER_INFO";
@@ -24,11 +25,9 @@ export default function reducer(state = initialState, action) {
   
   switch (action.type) {
     case STORE_USER_INFO:
-      const { username, profile_pic } = action.payload;
-      console.log('hello!!!')
-      return { username, profile_pic };
+      return {...state, user: action.payload };
     case LOGOUT_USER:
-      return { ...state };
+      return { ...state, user: null };
     default:
       return state;
   }
